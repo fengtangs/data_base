@@ -1,0 +1,86 @@
+创建表
+Create Table student
+( 
+   Sno char(10) primary key,
+   Sname char(10) unique,
+   Ssex char(8) not null,
+   Sage int
+); 
+Create Table teacher
+( 
+   Sno char(10) primary key,
+   Sname char(10) not null,
+   Ssex char(8) not null,
+   Sage int   unique
+); 
+查看表的信息
+help table student; 
+
+插入数据
+insert into student value(01,zhang,female,20); 
+insert into student value(02,li,male,17);
+insert into student value(01,wang,female,21);
+insert into student value(04,ma,male,19);
+insert into S value(1.1,1.2,1.3,20);
+insert into teacher value(03,wang,female,21);
+insert into teacher value(04,ma,male,19);
+
+查询数据
+select * from student;
+select * from teacher 
+删除数据
+delete from student where Sno=02; 
+
+更新数据
+update student set Sage=22 where Sno=01; 
+update student set Sname=www where Sno=01;
+
+存放数据表的信息
+一个文件存一个表
+******************************************************************
+3.
+解析CREATE、SELECT、INSERT、DELETE、UPDATE等SQL语句
+错误的输入：
+inst into student value(01,wmq,female,20);
+sect * from student;
+delete fom student where Sno=02; 
+upte student set Sage=22 where Sno=01;
+
+******************************************************************
+4.
+创建索引
+create index stu on student(Sno,Sname); 
+create index stu on student(Sno,Ssex); 
+create index tea on teacher (Sno,Ssex); 
+创建视图
+create view stu as select * from student;
+create view tea as select * from teacher ;
+create view stu as select * from student;
+显示索引
+help index stu; 
+help index tea; 
+显示视图
+help view tea;
+help view stu;
+******************************************************************
+5.
+取消授权
+revoke select on table student from feng;
+revoke insert on table student from feng;
+revoke delete on table student from feng;
+revoke update on table student from feng;
+用户授权
+grant select on table student to feng;
+grant insert on table student to feng;
+grant delete on table student to feng;
+grant update on table student to feng;
+
+select * from student;
+select * from teacher 
+******************************************************************
+6.
+显示数据库
+help database;
+
+
+
